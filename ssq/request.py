@@ -30,8 +30,7 @@ headers = {
 response = requests.get(url=baseUrl, params=params, headers=headers)
 
 
-# 对象 200 请求成功  状态码
-
+# 双色球
 class SSQClient(client.Client):
 
     __query_path = "/kjxx/findDrawNotice"
@@ -52,4 +51,3 @@ if __name__ == "__main__":
     response = cli.Query()
     data = response.json()
     print(data)
-
