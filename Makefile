@@ -1,14 +1,22 @@
 SERVICE_TYPE?=service
+Installer=pip3.8
+EXEC=python
+
+.PHONY: dev
+# init env
+dev:
+	$(Installer) install virtualenv
+	virtualenv --no-site-packages venv
 
 .PHONY: init
 # init env
 init:
-	pip3.8 install django
-	pip3.8 install pipreqs
+	$(Installer) install django
+	$(Installer) install pipreqs
 
 .PHONY: package
 package:
-	pip3.8 freeze > requirements.txt
+	$(Installer) freeze > requirements.txt
 	pipreqs ./ --encoding=utf8 --ignore=py38  --force
 
 .PHONY: api
@@ -52,5 +60,5 @@ service:
 .PHONY: run
 # run service
 run:
-	python app/$(APPNAME)/manage.py runserver
+	$(EXEC) app/$(APPNAME)/manage.py runserver
 
