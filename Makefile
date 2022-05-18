@@ -47,3 +47,10 @@ app:
 # generate service, eg: make service APPNAME=serverName
 service:
 	rm -rf app/$(APPNAME)
+	django-admin startproject $(APPNAME)
+
+.PHONY: run
+# run service
+run:
+	python app/$(APPNAME)/manage.py runserver
+
