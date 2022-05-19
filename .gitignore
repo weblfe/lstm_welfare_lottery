@@ -3,3 +3,5 @@ __pycache__/
 *.log
 RNN_prediction_2/
 py38/
+.DS_Store/
+*/.DS_Store/
